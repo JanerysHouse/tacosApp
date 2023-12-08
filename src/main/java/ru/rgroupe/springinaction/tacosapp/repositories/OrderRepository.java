@@ -1,11 +1,10 @@
 package ru.rgroupe.springinaction.tacosapp.repositories;
 
+import org.springframework.data.repository.CrudRepository;
 import ru.rgroupe.springinaction.tacosapp.entities.TacosOrder;
 
 import java.util.Optional;
 
-public interface OrderRepository {
-
-    TacosOrder save(TacosOrder tacosOrder);
+public interface OrderRepository extends CrudRepository<TacosOrder, Long> {
 
 }

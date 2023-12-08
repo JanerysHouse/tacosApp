@@ -1,14 +1,10 @@
 package ru.rgroupe.springinaction.tacosapp.repositories;
 
+import org.springframework.data.repository.CrudRepository;
 import ru.rgroupe.springinaction.tacosapp.entities.Ingredient;
 
 import java.util.Optional;
 
-public interface IngredientRepository {
+public interface IngredientRepository extends CrudRepository<Ingredient, String> {
 
-    Iterable<Ingredient> findAll();
-
-    Optional<Ingredient> findById(String id);
-
-    Ingredient save(Ingredient ingredient);
 }

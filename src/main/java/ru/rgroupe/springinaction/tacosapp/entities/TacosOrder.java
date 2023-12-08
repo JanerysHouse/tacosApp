@@ -2,6 +2,7 @@ package ru.rgroupe.springinaction.tacosapp.entities;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.CreditCardNumber;
+import org.springframework.data.annotation.Id;
 
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
@@ -13,6 +14,7 @@ import java.util.List;
 @Data
 public class TacosOrder {
 
+    @Id
     private long id;
     private Date placedAt;
 
