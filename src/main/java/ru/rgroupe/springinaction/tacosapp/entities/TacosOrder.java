@@ -1,8 +1,8 @@
 package ru.rgroupe.springinaction.tacosapp.entities;
 
+import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.validator.constraints.CreditCardNumber;
-import org.springframework.data.annotation.Id;
 
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
@@ -12,9 +12,11 @@ import java.util.Date;
 import java.util.List;
 
 @Data
+@Entity
 public class TacosOrder {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private Date placedAt;
 
@@ -43,6 +45,7 @@ public class TacosOrder {
     @Digits(integer = 3, fraction = 0, message = "Invalid CVV")
     private String ccCVV;
 
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Tacos> tacos = new ArrayList<>();
 
     public void addTaco(Tacos taco) {
