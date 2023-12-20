@@ -1,4 +1,4 @@
-package ru.rgroupe.springinaction.tacosapp.web;
+package ru.rgroupe.springinaction.tacosapp.controllers;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

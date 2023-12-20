@@ -9,14 +9,15 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+
 import java.io.Serial;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
 @Entity
 @Data
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
+@AllArgsConstructor
 @RequiredArgsConstructor
 public class User implements UserDetails {
 
@@ -35,6 +36,7 @@ public class User implements UserDetails {
     private final String state;
     private final String zip;
     private final String phoneNumber;
+
 
 
     @Override

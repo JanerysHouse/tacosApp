@@ -1,4 +1,4 @@
-package ru.rgroupe.springinaction.tacosapp.web;
+package ru.rgroupe.springinaction.tacosapp.controllers;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -13,6 +13,8 @@ import ru.rgroupe.springinaction.tacosapp.entities.TacosOrder;
 import ru.rgroupe.springinaction.tacosapp.repositories.IngredientRepository;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -27,7 +29,9 @@ public class DesignTacosController {
 
     @ModelAttribute
     public void addIngredientsToModel(Model model) {
-        Iterable<Ingredient> ingredients = repository.findAll();
+        List<Ingredient> ingredients = new ArrayList<>();
+        repository.findAll().forEach(ingredients::add);
+
         Type [] types = Ingredient.Type.values();
         for (Type type : types) {
             model.addAttribute(type.toString().toLowerCase(), filterByType(ingredients, type));
